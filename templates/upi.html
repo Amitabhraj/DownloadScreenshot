@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text on Image</title>
+    <style>
+
+        .price1, .price2, .utr, .trid, .date_time, .name, .logo, .upi_id{
+            font-family: 'Roboto', sans-serif;
+            position: absolute; /* Position text relative to the image container */
+            transform: translate(-50%, -50%); /* Adjusts the text position */
+            z-index: 1; /* Makes sure the text appears above the image */
+        }
+
+        .image-container img {
+            width: 25%;
+            height: 25%;
+            object-fit: cover; /* Ensures the image covers the container */
+        }
+
+        .price1 {
+            top: 17.6%; /* Centers text vertically */
+            left: 22.85%; /* Centers text horizontally */
+            color: #ebe9ec; /* Text color */
+            font-size: 17px; /* Text size */
+        }
+
+
+        .price2 {
+            top: 46.89%; /* Centers text vertically */
+            left: 22.85%; /* Centers text horizontally */
+            color: #ebe9ec; /* Text color */
+            font-size: 17px; /* Text size */
+        }
+
+        .utr {
+            top: 51%; /* Centers text vertically */
+            left: 11.58%; /* Centers text horizontally */
+            color: #b8b5b8; /* Text color */
+            font-size: 14.9px; /* Text size */
+        }
+
+        .trid {
+            top: 38.44%; /* Centers text vertically */
+            left: 8.55%; /* Centers text horizontally */
+            color: #e7e3e7; /* Text color */
+            font-size: 14.99px; /* Text size */
+        }
+
+        .date_time {
+            top: 6.29%; /* Centers text vertically */
+            left: 10.3%; /* Centers text horizontally */
+            color: #d2d1d1; /* Text color */
+            font-size: 12.8px; /* Text size */
+        }
+
+        .name {
+            top: 17.7%; /* Centers text vertically */
+            left: 10.5%; /* Centers text horizontally */
+            color: #d2d1d1; /* Text color */
+            font-size: 17.2px; /* Text size */
+        }
+
+        .upi_id {
+            top: 20.6%; /* Centers text vertically */
+            left: 10.4%; /* Centers text horizontally */
+            color: #b8b5b8; /* Text color */
+            font-size: 14.8px; /* Text size */
+        }
+
+        .logo {
+            top: 19%; /* Centers text vertically */
+            left: 3.54%; /* Centers text horizontally */
+            color: white; /* Text color */
+            font-size: 17.2px; /* Text size */
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="image-container">
+        <img src="transaction_success_page.jpg" alt="Image">
+
+        <div class="date_time">
+            15:37 AM on 18 Mar 2025
+        </div>
+
+        <div class="price1">
+            300
+        </div>
+
+        <div class="price2">
+            300
+        </div>
+
+        <div class="name">
+            Byterise Solutions
+        </div>
+
+        <div class="logo">
+            BS
+        </div>
+
+        <div class="upi_id">
+            paytm.s15b2v1@pty
+        </div>
+
+        <div class="trid">
+            T201826738928697494920
+        </div>
+
+        <div class="utr">
+            350110970492
+        </div>
+
+    </div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partial Screenshot</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+        }
+        .container {
+            padding: 20px;
+        }
+        .section {
+            width: 100%;
+            height: 300px;
+            margin: 20px 0;
+            border: 1px solid #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+        }
+        #section1 { background: #ffcccb; }
+        #section2 { background: #add8e6; }
+        #section3 { background: #90ee90; }
+        button {
+            display: block;
+            margin: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div id="section1" class="section">Section 1</div>
+    <div id="section2" class="section">Section 2</div>
+    <div id="section3" class="section">Section 3</div>
+
+    <button onclick="captureSection('section1')">Screenshot Section 1</button>
+    <button onclick="captureSection('section2')">Screenshot Section 2</button>
+    <button onclick="captureSection('section3')">Screenshot Section 3</button>
+
+</div>
+
+<script>
+    function captureSection(id) {
+        const element = document.getElementById(id);
+
+        html2canvas(element).then(canvas => {
+            const link = document.createElement("a");
+            link.href = canvas.toDataURL("image/png");
+            link.download = `${id}_screenshot.png`;
+            link.click();
+        });
+    }
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
