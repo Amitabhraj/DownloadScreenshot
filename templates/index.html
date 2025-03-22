@@ -43,22 +43,42 @@
 
 
         function copyUTR() {
-        // Get the UTR value
-        const utrText = document.getElementById("utrValue").innerText;
+            const utrText = document.getElementById("utrValue").innerText;
+            const copyBtn = document.getElementById("copyBtn");
 
-        // Use navigator.clipboard to copy the UTR
-        navigator.clipboard.writeText(utrText)
-        .then(() => {
-                // Change button text to 'Copied UTR ✔️'
-                copyBtn.textContent = 'Copied ✔️';
-                
-                // Optionally, revert the button text back after 3 seconds
-                setTimeout(() => {
-                    copyBtn.textContent = 'Copy';
-                }, 3000);
-            })
-            .catch(err => console.error('Failed to copy: ', err));
-    }
+            if (navigator.clipboard) {
+                // Modern browser method
+                navigator.clipboard.writeText(utrText)
+                    .then(() => {
+                        copyBtn.textContent = 'Copied ✔️';
+                        setTimeout(() => copyBtn.textContent = 'Copy', 3000);
+                    })
+                    .catch(err => {
+                        console.error('Failed to copy: ', err);
+                        fallbackCopy(utrText, copyBtn);
+                    });
+            } else {
+                // Fallback method for HTTP or older browsers
+                fallbackCopy(utrText, copyBtn);
+            }
+        }
+
+        // Fallback copy function
+        function fallbackCopy(text, button) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.select();
+
+            try {
+                document.execCommand('copy');
+                button.textContent = 'Copied ✔️';
+                setTimeout(() => button.textContent = 'Copy', 3000);
+            } catch (err) {
+                console.error('Fallback copy failed: ', err);
+            }
+            document.body.removeChild(textArea);
+        }
     </script>
     {% endif %}
 
