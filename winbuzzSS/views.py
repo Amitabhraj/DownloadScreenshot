@@ -41,7 +41,6 @@ def firstPage(request):
 
         if deposit_type == "BANK":
             image_path = str(BASE_DIR) + "/templates/bank_account_blank.jpg"   # Base template image
-            print(image_path)
 
             # Open the image
             img = Image.open(image_path)
@@ -107,6 +106,8 @@ def firstPage(request):
             filename = f'screenshot_{utr}_{trid}.jpg'
             response['Content-Disposition'] = f'attachment; filename="{filename}"'
 
+            print(response)
+
             # Redirect to the same page after download
             download_url = f'/download/?filename={filename}'
 
@@ -126,7 +127,7 @@ def download_image(request):
     filename = request.GET.get('filename')
 
     if filename:
-        image_path = os.path.join(settings.BASE_DIR, "media", filename)
+        image_path = str(BASE_DIR) + f"\media\{filename}"
         response = FileResponse(open(image_path, 'rb'))
         response['Content-Disposition'] = f'attachment; filename="{filename}"'
         return response
