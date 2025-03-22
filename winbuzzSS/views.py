@@ -127,14 +127,10 @@ def download_image(request):
 
     if filename:
         image_path = os.path.join(settings.BASE_DIR, "media", filename)
-        
-        # Check if the file exists
-        if os.path.exists(image_path):
-            # Create the FileResponse
-            response = FileResponse(open(image_path, 'rb'))
-            response['Content-Disposition'] = f'attachment; filename="{filename}"'
-            return response
-        
+        response = FileResponse(open(image_path, 'rb'))
+        response['Content-Disposition'] = f'attachment; filename="{filename}"'
+        return response
+    
         
 
 
