@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-=il)@o5fzz@s5809z)czmby5okh#6+(%mia27t$64)r61tbe*@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -49,6 +49,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CSRF_TRUSTED_ORIGINS = ['http://ec2-13-60-88-83.eu-north-1.compute.amazonaws.com', 'http://ec2-13-60-88-83.eu-north-1.compute.amazonaws.com:8000']
 
 ROOT_URLCONF = 'secretWinbuzz.urls'
 
