@@ -31,10 +31,13 @@ def firstPage(request):
         self_account_number = str(random.randint(1100, 9091))
 
         #logo & date time
-        words = name.strip().split()
-        if len(words) == 1:
-            return words[0][0].upper()
-        logo = words[0][0].upper() + words[-1][0].upper()
+        if len(name.split(" ")) >= 2:
+            words = name.strip().split()
+            if len(words) == 1:
+                return words[0][0].upper()
+            logo = words[0][0].upper() + words[-1][0].upper()
+        else:
+            logo = name.split(" ")[0].upper()
 
         now = datetime.now() #Current date Time
         date_time = now.strftime("%I:%M %p on %d %b %Y")
