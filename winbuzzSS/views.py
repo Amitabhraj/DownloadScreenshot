@@ -48,7 +48,7 @@ def firstPage(request):
             draw = ImageDraw.Draw(img)
 
             # Set the font and size
-            font_path = str(BASE_DIR) + "\winbuzzSS\Roboto\Roboto-VariableFont_wdth,wght.ttf"  # Replace with your font path
+            font_path = str(BASE_DIR) + "/winbuzzSS/Roboto/Roboto-VariableFont_wdth,wght.ttf"  # Replace with your font path
             date_time_font = ImageFont.truetype(font_path, size=25)
             paid_to_font = ImageFont.truetype(font_path, size=32)
             reciever_account_number_font = ImageFont.truetype(font_path, size=28)
