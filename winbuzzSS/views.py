@@ -37,7 +37,7 @@ def firstPage(request):
                 return words[0][0].upper()
             logo = words[0][0].upper() + words[-1][0].upper()
         else:
-            logo = name.split(" ")[0].upper()
+            logo = name.split(" ")[0][0].upper()
 
         now = datetime.now() #Current date Time
         date_time = now.strftime("%I:%M %p on %d %b %Y")
