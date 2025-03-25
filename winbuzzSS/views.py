@@ -41,7 +41,7 @@ def firstPage(request):
 
         if deposit_type == "BANK":
             image_path = str(BASE_DIR) + "/templates/blank_bank_account.jpg"   # Base template image
-            logo_image_path = str(BASE_DIR) + f"\media\logo\{bank_name}.png"
+            logo_image_path = str(BASE_DIR) + f"/media/logo/{bank_name}.png"
 
             # Open the image
             img = Image.open(image_path)
